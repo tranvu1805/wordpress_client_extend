@@ -5,7 +5,7 @@ import '../utilities/self_representive_base.dart';
 
 /// Represents the WordPress site information and API capabilities.
 ///
-/// This class encapsulates the data returned by the WordPress REST API's root endpoint,
+/// This class encapsulates the data returned by the WordPress REST API 's root endpoint,
 /// which provides information about the site and available API routes.
 ///
 /// For more information, see:
@@ -32,7 +32,7 @@ final class WordpressDiscovery implements ISelfRespresentive {
   /// Creates a [WordpressDiscovery] instance from a JSON map.
   ///
   /// This factory constructor is used to deserialize site information data
-  /// received from the WordPress REST API's root endpoint.
+  /// received from the WordPress REST API 's root endpoint.
   factory WordpressDiscovery.fromJson(Map<String, dynamic> map) {
     return WordpressDiscovery(
       siteIconUrl: castOrElse(map['site_icon_url']),

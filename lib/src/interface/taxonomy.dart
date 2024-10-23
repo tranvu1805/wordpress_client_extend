@@ -1,17 +1,16 @@
 import '../../wordpress_client.dart';
-import '../responses/taxonomy_response.dart';
 
-/// Represents the tag interface for interacting with WordPress tags.
+/// Represents the tag interface for interacting with WordPress taxonomies.
 ///
-/// This interface provides CRUD (Create, Read, Update, Delete) operations for tags.
-/// It extends [IRequestInterface] and mixes in various operations to handle tag-related tasks.
+/// This interface provides CRUD (Create, Read, Update, Delete) operations for taxonomies.
+/// It extends [IRequestInterface] and mixes in various operations to handle taxonomy-related tasks.
 ///
 /// Example usage:
 /// ```dart
 /// final wordpress = WordpressClient(baseUrl: 'https://your-wordpress-site.com/wp-json');
-/// final tagInterface = wordpress.tags;
-/// // Retrieve a tag
-/// final tag = await tagInterface.retrieve(RetrieveTagRequest(id: 123));
+/// final taxonomy = wordpress.taxonomies;
+/// // Retrieve a taxonomy
+/// final taxonomy = await taxonomyInterface.retrieve(RetrieveTaxonomyRequest());
 ///
 
 final class TaxonomyInterface extends IRequestInterface

@@ -32,6 +32,7 @@ export 'retrive/retrive_me.dart';
 export 'retrive/retrive_media.dart';
 export 'retrive/retrive_page.dart';
 export 'retrive/retrive_post.dart';
+export 'retrive/retrive_post_status.dart';
 export 'retrive/retrive_tag.dart';
 export 'retrive/retrive_taxonomy.dart';
 export 'retrive/retrive_user.dart';

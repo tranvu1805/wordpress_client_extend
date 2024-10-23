@@ -13,6 +13,7 @@ import 'interface/comments.dart';
 import 'interface/me.dart';
 import 'interface/media.dart';
 import 'interface/page.dart';
+import 'interface/post_status.dart';
 import 'interface/posts.dart';
 import 'interface/search.dart';
 import 'interface/tags.dart';
@@ -317,6 +318,17 @@ final class WordpressClient implements IDisposable {
   /// ```
   PostsInterface get posts => get<PostsInterface>('posts');
 
+  /// Interface for operations on posts.
+  ///
+  /// Available operations:
+  /// - Retrieve
+  ///
+  /// Example:
+  /// ```dart
+  /// final postStatus = await client.postStatus.retrive(PostStatusRequest(name:'abc'));
+  /// ```
+  PostStatusInterface get postStatuses => get<PostStatusInterface>('statuses');
+
   /// Interface for operations on pages.
   ///
   /// Available operations:
@@ -410,13 +422,10 @@ final class WordpressClient implements IDisposable {
   ///
   /// Available operations:
   /// - Retrieve
-  /// - Create (Requires Authorization)
-  /// - Update (Requires Authorization)
-  /// - Delete (Requires Authorization)
   ///
   /// Example:
   /// ```dart
-  /// final taxonomies = await client.taxonomies.retrive(ListTaxonomyRequest());
+  /// final taxonomies = await client.taxonomies.retrive(TaxonomyRequest());
   /// ```
   TaxonomyInterface get taxonomies => get<TaxonomyInterface>('taxonomies');
 
@@ -538,6 +547,12 @@ final class WordpressClient implements IDisposable {
       key: 'posts',
       decoder: (json) => Post.fromJson(json),
       encoder: (dynamic post) => (post as Post).toJson(),
+    );
+    register<PostStatusInterface, PostStatus>(
+      interface: PostStatusInterface(),
+      key: 'statuses',
+      decoder: (json) => PostStatus.fromJson(json),
+      encoder: (dynamic postStatus) => (postStatus as PostStatus).toJson(),
     );
 
     register<CategoryInterface, Category>(

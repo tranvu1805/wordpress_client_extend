@@ -16,6 +16,7 @@ import 'interface/page.dart';
 import 'interface/posts.dart';
 import 'interface/search.dart';
 import 'interface/tags.dart';
+import 'interface/taxonomy.dart';
 import 'interface/users.dart';
 import 'interface_key.dart';
 import 'library_exports.dart';
@@ -283,7 +284,7 @@ final class WordpressClient implements IDisposable {
 
   /// Returns true if the WordPress site discovery process has been completed.
   bool get discoveryCompleted => _discovery != null;
-
+  //Todo get properties
   /// Interface for operations on the current authorized user.
   ///
   /// Available operations:
@@ -406,6 +407,19 @@ final class WordpressClient implements IDisposable {
   /// ```
   TagInterface get tags => get<TagInterface>('tags');
 
+  ///
+  /// Available operations:
+  /// - Retrieve
+  /// - Create (Requires Authorization)
+  /// - Update (Requires Authorization)
+  /// - Delete (Requires Authorization)
+  ///
+  /// Example:
+  /// ```dart
+  /// final taxonomies = await client.taxonomies.retrive(ListTaxonomyRequest());
+  /// ```
+  TaxonomyInterface get taxonomies => get<TaxonomyInterface>('taxonomies');
+
   /// Interface for operations on users.
   ///
   /// Available operations:
@@ -511,6 +525,7 @@ final class WordpressClient implements IDisposable {
   }
 
   void _registerInternalInterfaces() {
+    //Todo register interface
     register<MeInterface, User>(
       interface: MeInterface(),
       key: 'me',
@@ -551,6 +566,12 @@ final class WordpressClient implements IDisposable {
       key: 'tags',
       decoder: (json) => Tag.fromJson(json),
       encoder: (dynamic tag) => (tag as Tag).toJson(),
+    );
+    register<TaxonomyInterface, Taxonomy>(
+      interface: TaxonomyInterface(),
+      key: 'taxonomies',
+      decoder: (json) => Taxonomy.fromJson(json),
+      encoder: (dynamic taxonomy) => (taxonomy as Taxonomy).toJson(),
     );
 
     register<UsersInterface, User>(

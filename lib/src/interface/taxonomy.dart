@@ -1,5 +1,4 @@
 import '../../wordpress_client.dart';
-import '../requests/retrive/retrive_taxonomy.dart';
 import '../responses/taxonomy_response.dart';
 
 /// Represents the tag interface for interacting with WordPress tags.
@@ -16,5 +15,4 @@ import '../responses/taxonomy_response.dart';
 ///
 
 final class TaxonomyInterface extends IRequestInterface
-    with
-        RetrieveOperation<Taxonomy, RetrieveTaxonomyRequest>{}
+    with RetrieveOperation<Taxonomy, RetrieveTaxonomyRequest> {}

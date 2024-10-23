@@ -2,7 +2,6 @@ import '../../../wordpress_client.dart';
 
 final class RetrieveTaxonomyRequest extends IRequest {
   RetrieveTaxonomyRequest({
-    required this.id,
     this.context,
     super.cancelToken,
     super.authorization,
@@ -17,7 +16,6 @@ final class RetrieveTaxonomyRequest extends IRequest {
   });
 
   RequestContext? context;
-  int id;
 
   @override
   WordpressRequest build(Uri baseUrl) {

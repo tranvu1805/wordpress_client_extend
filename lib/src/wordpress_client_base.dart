@@ -13,6 +13,7 @@ import 'interface/comments.dart';
 import 'interface/me.dart';
 import 'interface/media.dart';
 import 'interface/page.dart';
+import 'interface/post_revision.dart';
 import 'interface/post_status.dart';
 import 'interface/posts.dart';
 import 'interface/search.dart';
@@ -285,6 +286,7 @@ final class WordpressClient implements IDisposable {
 
   /// Returns true if the WordPress site discovery process has been completed.
   bool get discoveryCompleted => _discovery != null;
+
   //Todo get properties
   /// Interface for operations on the current authorized user.
   ///
@@ -328,6 +330,18 @@ final class WordpressClient implements IDisposable {
   /// final postStatus = await client.postStatus.retrive(PostStatusRequest(name:'abc'));
   /// ```
   PostStatusInterface get postStatuses => get<PostStatusInterface>('statuses');
+
+  /// Interface for operations on posts.
+  ///
+  /// Available operations:
+  /// - Retrieve
+  ///
+  /// Example:
+  /// ```dart
+  /// final postStatus = await client.postStatus.retrive(PostStatusRequest(name:'abc'));
+  /// ```
+  PostRevisionInterface get postRevisions =>
+      get<PostRevisionInterface>('revisions');
 
   /// Interface for operations on pages.
   ///
@@ -553,6 +567,13 @@ final class WordpressClient implements IDisposable {
       key: 'statuses',
       decoder: (json) => PostStatus.fromJson(json),
       encoder: (dynamic postStatus) => (postStatus as PostStatus).toJson(),
+    );
+    register<PostRevisionInterface, PostRevision>(
+      interface: PostRevisionInterface(),
+      key: 'revisions',
+      decoder: (json) => PostRevision.fromJson(json),
+      encoder: (dynamic postRevision) =>
+          (postRevision as PostRevision).toJson(),
     );
 
     register<CategoryInterface, Category>(

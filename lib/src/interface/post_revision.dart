@@ -39,7 +39,7 @@ import '../../wordpress_client.dart';
 final class PostRevisionInterface extends IRequestInterface
     with
         CreateOperation<PostRevision, CreatePostRevisionRequest>,
-        DeleteOperation<DeletePostRequest>,
-        RetrieveOperation<Post, RetrievePostRequest>,
-        UpdateOperation<Post, UpdatePostRequest>,
-        ListOperation<Post, ListPostRequest> {}
+        DeleteOperation<DeletePostRevisionRequest>,
+        RetrieveOperation<PostRevision, RetrievePostRevisionRequest>,
+        UpdateOperation<PostRevision, UpdatePostRequest>,
+        ListOperation<PostRevision, ListPostRequest> {}

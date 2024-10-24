@@ -35,4 +35,4 @@ final class PostRevisionInterface extends IRequestInterface
         CreateOperation<PostRevision, CreatePostRevisionRequest>,
         DeleteOperation<DeletePostRevisionRequest>,
         RetrieveOperation<PostRevision, RetrievePostRevisionRequest>,
-        ListOperation<PostRevision, ListPostRequest> {}
+        ListOperation<PostRevision, ListPostRevisionRequest> {}

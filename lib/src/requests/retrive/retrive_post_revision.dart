@@ -38,7 +38,7 @@ final class RetrievePostRevisionRequest extends IRequest {
         [
           'posts',
           parent.toString(),
-          'revision',
+          'revisions',
           id,
         ],
       ),
